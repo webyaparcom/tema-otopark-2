@@ -1,0 +1,47 @@
+{
+  "name": {
+    "tr": "Vardiya",
+    "en": "Shifts",
+    "ar": "الورديات"
+  },
+  "status": "play",
+  "category": "",
+  "id": "hakkimizda",
+  "url": "",
+  "path": "hakkimizda",
+  "index": 0,
+  "icon": "schedule",
+  "desing": {
+    "header": [],
+    "body": [
+      "8ftxj8",
+      "if1dnu"
+    ],
+    "footer": []
+  },
+  "pathnext": "",
+  "description": {
+    "tr": "Görevli vardiya çizelgesi ve kat doluluğu (kurgusal).",
+    "en": "Staff shift rota and level occupancy (fictional).",
+    "ar": "جدول ورديات الموظفين وإشغال الطوابق (افتراضي)."
+  },
+  "spot": {
+    "tr": "",
+    "en": "",
+    "ar": ""
+  },
+  "desc": {},
+  "title": {
+    "tr": "Vardiya",
+    "en": "Shifts",
+    "ar": "الورديات"
+  },
+  "keyword": {
+    "tr": "vardiya, görevli",
+    "en": "shifts, staff",
+    "ar": "ورديات، موظفون"
+  },
+  "text": {},
+  "update": "2026-11-16T22:37:50.528Z",
+  "date": "2026-10-30"
+}

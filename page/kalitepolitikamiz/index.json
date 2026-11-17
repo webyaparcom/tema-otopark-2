@@ -1,0 +1,46 @@
+{
+  "id": "kalitepolitikamiz",
+  "name": {
+    "tr": "Kalite Politikamız",
+    "en": "Quality Policy",
+    "ar": "سياسة الجودة"
+  },
+  "description": {
+    "tr": "Kalite politikamız",
+    "en": "Our quality policy",
+    "ar": "سياسة الجودة لدينا"
+  },
+  "keyword": {
+    "tr": "Kalite Politikamız",
+    "en": "quality policy, quality, continuous improvement",
+    "ar": "سياسة الجودة, الجودة, التحسين المستمر"
+  },
+  "path": "kalitepolitikamiz",
+  "icon": "verified",
+  "category": "",
+  "status": "play",
+  "desing": {
+    "header": [],
+    "body": [],
+    "footer": []
+  },
+  "index": 2,
+  "url": "",
+  "text": {
+    "tr": "<h2>Kalite Politikamız</h2>\n<p>Her katta kamera kaydı, vardiyalı görevli, yazılı tarife panosu ve plaka tanımalı giriş-çıkış.</p>",
+    "en": "<h2>Our quality policy</h2>\n<p>Camera recording on every level, staff on shifts, a written rate board and plate-recognition entry and exit.</p>",
+    "ar": "<h2>سياسة الجودة لدينا</h2>\n<p>تسجيل بالكاميرات في كل طابق وموظفون بنظام الورديات ولوحة أسعار مكتوبة ودخول وخروج بالتعرف على اللوحات.</p>"
+  },
+  "title": {
+    "tr": "Kalite Politikamız",
+    "en": "Quality Policy",
+    "ar": "سياسة الجودة"
+  },
+  "date": "2026-11-16T22:34:58.177Z",
+  "update": "2026-11-16T22:37:50.590Z",
+  "sablonIzi": "acedf6b7c400faec",
+  "sablonIziDil": {
+    "en": "587042c99dce90ca",
+    "ar": "a5348f544603b25e"
+  }
+}

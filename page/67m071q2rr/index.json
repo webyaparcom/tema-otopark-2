@@ -1,0 +1,40 @@
+{
+  "id": "67m071q2rr",
+  "name": {
+    "tr": "Tarife",
+    "en": "Rates",
+    "ar": "الأسعار"
+  },
+  "description": {
+    "tr": "Tarife, abonelik ve güvenlik soruları; ücretler KDV dahil ve kurgusal.",
+    "en": "Rate, pass and safety questions; prices incl. VAT and fictional.",
+    "ar": "أسئلة الأسعار والاشتراكات والسلامة؛ الأسعار شاملة الضريبة وافتراضية."
+  },
+  "keyword": {
+    "tr": "tarife, otopark ücreti",
+    "en": "rates, parking fee",
+    "ar": "الأسعار، رسوم الوقوف"
+  },
+  "path": "sorular",
+  "icon": "payments",
+  "category": "",
+  "status": "play",
+  "desing": {
+    "header": [],
+    "body": [
+      "lp1nep",
+      "c1syo8"
+    ],
+    "footer": []
+  },
+  "index": 1,
+  "url": "",
+  "text": {},
+  "title": {
+    "tr": "Tarife",
+    "en": "Rates",
+    "ar": "الأسعار"
+  },
+  "date": "2026-11-16T22:34:58.455Z",
+  "update": "2026-11-16T22:37:50.539Z"
+}
