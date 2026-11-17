@@ -1,0 +1,156 @@
+<section class="modulex-ekip-vardiya-cizelgesi{{fbsinif}}" {{fbetiket}}>
+  <div class="modulex-ekip-vardiya-cizelgesi-ic">
+    {{fbbas}}
+    {{fbgovde}}
+  </div>
+</section>
+
+<style>
+  /* ekip-vardiya-cizelgesi — Zaman ekseni (Gantt) iskeleti: ekip-calisma-gunu haftanın gününe göre çip süzgeci + 7 günlük şerit kurarken burada tek günün saatleri orantılı çubuklarla çizilir ve canlı «şu an» çizgisi kimin görevde olduğunu gösterir; kart/ızgara yok, satır + iz düzeni. */
+  .modulex-ekip-vardiya-cizelgesi { box-sizing: border-box; width: 100%; padding: --bosluk-- 20px; background: --bg--; color: --text--; font-size: 1rem; line-height: 1.6; font-family: var(--mx-font-sans, inherit); overflow-wrap: break-word; }
+  .modulex-ekip-vardiya-cizelgesi *, .modulex-ekip-vardiya-cizelgesi *::before, .modulex-ekip-vardiya-cizelgesi *::after { box-sizing: border-box; }
+  /* ham/css.css «* { font-size: 14px }» kalıtımı keser — modül içinde boyut üstten gelsin (ikon yazı tipi hariç) */
+  .modulex-ekip-vardiya-cizelgesi :where(*:not(.material-symbols-outlined)) { font-size: inherit; }
+  /* aynı «*» kuralı font-weight 400 · line-height 1.2 · font-family de basar — modül içinde kalıtım */
+  .modulex-ekip-vardiya-cizelgesi :where(*:not(.material-symbols-outlined)) { font-weight: inherit; line-height: inherit; font-family: inherit; }
+  .modulex-ekip-vardiya-cizelgesi :where(h2, h3, h4, p, ul, ol, li, figure, blockquote, dl, dd) { margin: 0; }
+  .modulex-ekip-vardiya-cizelgesi :where(ul, ol) { padding: 0; list-style: none; }
+  .modulex-ekip-vardiya-cizelgesi img { display: block; max-width: 100%; }
+  /* <img width height> öznitelik yüksekliği CSS aspect-ratio'yu ezer — sıfır özgüllükle auto (modül sınıfının height'ı yine kazanır) */
+  :where(.modulex-ekip-vardiya-cizelgesi) img { height: auto; }
+  .modulex-ekip-vardiya-cizelgesi [hidden] { display: none !important; }
+  .modulex-ekip-vardiya-cizelgesi :where(a, button, summary, [data-cevir]) { cursor: pointer; }
+  .modulex-ekip-vardiya-cizelgesi :where(a, button, summary, [tabindex]):focus-visible { outline: 3px solid --accent--; outline-offset: 3px; }
+  .modulex-ekip-vardiya-cizelgesi-ic { max-width: --max--; margin-inline: auto; }
+  .modulex-ekip-vardiya-cizelgesi-bas { display: grid; gap: 12px; margin-block-end: clamp(32px, 4vw, 52px); }
+  .modulex-ekip-vardiya-cizelgesi--bassiz .modulex-ekip-vardiya-cizelgesi-bas { display: none; }
+  .modulex-ekip-vardiya-cizelgesi-ust { color: --accentInk--; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+  .modulex-ekip-vardiya-cizelgesi-baslik { font-family: var(--mx-font-heading, inherit); font-size: clamp(1.8rem, 3.4vw, 2.8rem); font-weight: 750; letter-spacing: -0.025em; line-height: 1.1; }
+  .modulex-ekip-vardiya-cizelgesi-metin { color: --muted--; font-size: 1.05rem; line-height: 1.7; }
+  .modulex-ekip-vardiya-cizelgesi-bas { max-width: 760px; }
+  .modulex-ekip-vardiya-cizelgesi-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-block-start: 8px; }
+  .modulex-ekip-vardiya-cizelgesi-dugme { display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 12px 22px; border: 2px solid --accent--; border-radius: 999px; background: --accent--; color: --accentText--; font-weight: 700; text-decoration: none; transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease; }
+  .modulex-ekip-vardiya-cizelgesi-dugme:hover { transform: translateY(-2px); }
+  .modulex-ekip-vardiya-cizelgesi-dugme--ikincil { background: transparent; color: --text--; border-color: --cizgi--; }
+  .modulex-ekip-vardiya-cizelgesi-dugme--ikincil:hover { border-color: --accent--; }
+  .modulex-ekip-vardiya-cizelgesi-dugme .material-symbols-outlined { font-size: 20px; }
+
+  .modulex-ekip-vardiya-cizelgesi-eksen { display: grid; grid-template-columns: minmax(0, 280px) minmax(0, 1fr); gap: 24px; padding-block-end: 8px; border-block-end: 2px solid --text--; }
+  .modulex-ekip-vardiya-cizelgesi-tikler { position: relative; block-size: 58px; }
+  .modulex-ekip-vardiya-cizelgesi-tik { position: absolute; inset-block-end: 0; translate: -50% 0; color: --muted--; font-size: 0.78rem; font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  [dir="rtl"] .modulex-ekip-vardiya-cizelgesi-tik { translate: 50% 0; }
+  .modulex-ekip-vardiya-cizelgesi-tik:first-of-type { translate: 0 0; }
+  .modulex-ekip-vardiya-cizelgesi-tik:last-child { translate: -100% 0; }
+  [dir="rtl"] .modulex-ekip-vardiya-cizelgesi-tik:last-child { translate: 100% 0; }
+  .modulex-ekip-vardiya-cizelgesi-simdietk { position: absolute; inset-block-start: 0; inset-inline-start: var(--vd-simdi, 0%); translate: calc(var(--vd-kay, 0.5) * -100%) 0; padding: 3px 10px; border-radius: 999px; background-color: --text--; color: --bg--; font-size: 0.76rem; font-weight: 800; font-variant-numeric: tabular-nums; white-space: nowrap; visibility: hidden; }
+  [dir="rtl"] .modulex-ekip-vardiya-cizelgesi-simdietk { translate: calc(var(--vd-kay, 0.5) * 100%) 0; }
+  .modulex-ekip-vardiya-cizelgesi--simdi .modulex-ekip-vardiya-cizelgesi-simdietk { visibility: visible; }
+  .modulex-ekip-vardiya-cizelgesi-cizelge { display: grid; }
+  .modulex-ekip-vardiya-cizelgesi-satir { position: relative; display: grid; grid-template-columns: minmax(0, 280px) minmax(0, 1fr); align-items: center; gap: 24px; padding-block: 12px; border-block-end: 1px dashed --cizgi--; transition: background-color 0.3s ease; }
+  .modulex-ekip-vardiya-cizelgesi-satir:hover { background-color: --kartBg--; }
+  .modulex-ekip-vardiya-cizelgesi-kisi { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 12px; }
+  .modulex-ekip-vardiya-cizelgesi-foto { width: 46px; height: 46px; border-radius: 12px; object-fit: cover; font-size: 0.95rem; }
+  .modulex-ekip-vardiya-cizelgesi-kimlik { display: grid; min-width: 0; }
+  .modulex-ekip-vardiya-cizelgesi-kimlik .modulex-ekip-vardiya-cizelgesi-ad { font-size: 1rem; }
+  .modulex-ekip-vardiya-cizelgesi-kimlik .modulex-ekip-vardiya-cizelgesi-unvan { font-size: 0.84rem; }
+  .modulex-ekip-vardiya-cizelgesi-saatler { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .modulex-ekip-vardiya-cizelgesi-durum { display: inline-flex; align-items: center; gap: 6px; color: --accentInk--; font-size: 0.76rem; font-weight: 800; }
+  .modulex-ekip-vardiya-cizelgesi-durum::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background-color: --accent--; visibility: hidden; }
+  .modulex-ekip-vardiya-cizelgesi-satir--mesai .modulex-ekip-vardiya-cizelgesi-durum::before { visibility: visible; animation: modulex-ekip-vardiya-cizelgesi-nabiz 1.8s ease-out infinite; }
+  @keyframes modulex-ekip-vardiya-cizelgesi-nabiz { 0% { box-shadow: 0 0 0 0 color-mix(in srgb, --accent-- 55%, transparent); } 100% { box-shadow: 0 0 0 10px transparent; } }
+  .modulex-ekip-vardiya-cizelgesi-iz { position: relative; block-size: 42px; border-radius: 10px; background-color: color-mix(in srgb, --text-- 4%, transparent); background-image: repeating-linear-gradient(to right, --cizgi-- 0 1px, transparent 1px calc(100% / var(--saat, 12))); }
+  .modulex-ekip-vardiya-cizelgesi-iz::after { content: ""; position: absolute; inset-block: -12px; inset-inline-start: var(--vd-simdi, 0%); inline-size: 2px; background-color: --text--; visibility: hidden; }
+  .modulex-ekip-vardiya-cizelgesi--simdi .modulex-ekip-vardiya-cizelgesi-iz::after { visibility: visible; }
+  .modulex-ekip-vardiya-cizelgesi-cubuk { position: absolute; inset-block: 6px; display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: 8px; background-color: --accent--; color: --accentText--; font-size: 0.8rem; font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; transform-origin: 0 50%; transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); }
+  [dir="rtl"] .modulex-ekip-vardiya-cizelgesi-cubuk { transform-origin: 100% 50%; }
+  .modulex-ekip-vardiya-cizelgesi--hazir:not(.modulex-ekip-vardiya-cizelgesi--gor) .modulex-ekip-vardiya-cizelgesi-cubuk { transform: scaleX(0); }
+  .modulex-ekip-vardiya-cizelgesi-satir--mesai .modulex-ekip-vardiya-cizelgesi-cubuk { box-shadow: 0 6px 16px -8px color-mix(in srgb, --accent-- 90%, transparent); }
+  .modulex-ekip-vardiya-cizelgesi-yok { position: absolute; inset-block-start: 50%; inset-inline: 14px; border-block-start: 2px dashed --cizgi--; }
+  @media (max-width: 768px) {
+    .modulex-ekip-vardiya-cizelgesi-eksen, .modulex-ekip-vardiya-cizelgesi-satir { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+    .modulex-ekip-vardiya-cizelgesi-eksenbos { display: none; }
+    .modulex-ekip-vardiya-cizelgesi-tik:nth-of-type(even):not(:last-child) { visibility: hidden; }
+    .modulex-ekip-vardiya-cizelgesi-cubuk bdi { visibility: hidden; }
+    .modulex-ekip-vardiya-cizelgesi-saatler { position: static; width: auto; height: auto; overflow: visible; clip-path: none; color: --muted--; font-size: 0.8rem; font-variant-numeric: tabular-nums; white-space: normal; }
+    .modulex-ekip-vardiya-cizelgesi-iz { block-size: 30px; }
+    .modulex-ekip-vardiya-cizelgesi-cubuk { inset-block: 5px; }
+  }
+  /* img width/height öznitelikleri CSS yüksekliği olur — aspect-ratio'nun çalışması için yükseklik auto (modül kuralı ezebilir) */
+  :where(.modulex-ekip-vardiya-cizelgesi) img { height: auto; }
+  .modulex-ekip-vardiya-cizelgesi-foto { min-width: 0; }
+  .modulex-ekip-vardiya-cizelgesi-bag { color: inherit; text-decoration: none; }
+  .modulex-ekip-vardiya-cizelgesi-bag:hover { text-decoration: underline; text-underline-offset: 4px; }
+  .modulex-ekip-vardiya-cizelgesi-harf { display: grid; place-items: center; background-color: --vurguBg--; color: --vurguText--; font-weight: 800; letter-spacing: 0.02em; }
+  .modulex-ekip-vardiya-cizelgesi-sosyal { display: flex; flex-wrap: wrap; gap: 8px; }
+  .modulex-ekip-vardiya-cizelgesi-slink { display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-width: 40px; min-height: 40px; padding: 0 10px; border: 1px solid --cizgi--; border-radius: 999px; color: inherit; font-size: 0.88rem; text-decoration: none; transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease; }
+  .modulex-ekip-vardiya-cizelgesi-slink:hover { background-color: --accent--; border-color: --accent--; color: --accentText--; }
+  .modulex-ekip-vardiya-cizelgesi-slink .material-symbols-outlined { font-size: 19px; }
+  .modulex-ekip-vardiya-cizelgesi-syazi { overflow-wrap: anywhere; }
+  .modulex-ekip-vardiya-cizelgesi-ad { font-size: 1.12rem; font-weight: 750; line-height: 1.3; }
+  .modulex-ekip-vardiya-cizelgesi-unvan { color: --accentInk--; font-size: 0.92rem; font-weight: 650; }
+  .modulex-ekip-vardiya-cizelgesi-bio { color: --muted--; font-size: 0.95rem; line-height: 1.65; }
+  .modulex-ekip-vardiya-cizelgesi-bolum { color: --muted--; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+
+  :is([lang="ar"], [lang="fa"], [lang="he"], [lang="ur"]) .modulex-ekip-vardiya-cizelgesi :is(.modulex-ekip-vardiya-cizelgesi-baslik, .modulex-ekip-vardiya-cizelgesi-ust, h3, h4, strong) { letter-spacing: 0; }
+  :is([lang="ar"], [lang="fa"], [lang="he"], [lang="ur"]) .modulex-ekip-vardiya-cizelgesi-baslik { line-height: 1.35; }
+  @media (max-width: 768px) {
+    .modulex-ekip-vardiya-cizelgesi { padding-inline: 16px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .modulex-ekip-vardiya-cizelgesi *, .modulex-ekip-vardiya-cizelgesi *::before, .modulex-ekip-vardiya-cizelgesi *::after { animation: none !important; transition: none !important; }
+  }
+</style>
+<script>
+  (() => {
+    const P = "modulex-ekip-vardiya-cizelgesi";
+    const az = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+    const gozlem = (s, P, az) => {
+        const gor = () => s.classList.add(P + "--gor");
+        s.classList.add(P + "--hazir");
+        if (az || !("IntersectionObserver" in window)) { gor(); return; }
+        const io = new IntersectionObserver((gs) => {
+          gs.forEach((g) => { if (g.isIntersecting) { gor(); io.disconnect(); } });
+        }, { threshold: 0.15 });
+        io.observe(s);
+      };
+    const vardiya = (s, P) => {
+        const L = s.querySelector("[data-vd-pencere]");
+        if (!L) return;
+        const [a0, b0] = L.dataset.vdPencere.split(",").map(Number);
+        if (!(b0 > a0)) return;
+        const etk = s.querySelector("[data-vd-simdi]");
+        let f = null;
+        try { f = new Intl.DateTimeFormat(document.documentElement.lang || undefined, { hour: "2-digit", minute: "2-digit" }); } catch (e) { f = null; }
+        const tur = () => {
+          const d = new Date();
+          let m = d.getHours() * 60 + d.getMinutes();
+          if (m < a0) m += 1440;
+          const ic = m >= a0 && m <= b0;
+          s.classList.toggle(P + "--simdi", ic);
+          if (ic) {
+            const p = ((m - a0) / (b0 - a0)) * 100;
+            s.style.setProperty("--vd-simdi", p.toFixed(2) + "%");
+            s.style.setProperty("--vd-kay", p < 12 ? "0" : p > 88 ? "1" : "0.5");
+          }
+          if (etk) etk.textContent = [etk.dataset.vdOnek || "", f ? f.format(d) : `${d.getHours()}:${String(d.getMinutes()).padStart(2, "0")}`].filter(Boolean).join(" · ");
+          s.querySelectorAll("[data-vd]").forEach((r) => {
+            const on = r.dataset.vd.split(";").filter(Boolean).some((x) => {
+              const [a, b] = x.split(",").map(Number);
+              return [m, m - 1440, m + 1440].some((t) => t >= a && t < b);
+            });
+            r.classList.toggle(P + "-satir--mesai", on);
+            const dz = r.querySelector("[data-vd-durum]");
+            if (dz) dz.textContent = on ? dz.dataset.vdEtiket || "" : "";
+          });
+        };
+        tur();
+        setInterval(tur, 60000);
+      };
+    document.querySelectorAll("." + P).forEach((s) => {
+      if (s.dataset.fbHazir) return;
+      s.dataset.fbHazir = "1";
+      gozlem(s, P, az);
+      vardiya(s, P, az);
+    });
+  })();
+</script>

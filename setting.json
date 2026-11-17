@@ -1,0 +1,54 @@
+{
+  "order": false,
+  "user": false,
+  "description": {
+    "tr": "Halka Park: İzmir’de Konak, Bornova ve Karşıyaka’da katlı otopark; kat kat doluluk, saatlik ve aylık tarife, abonelik. Demo site; görseller temsilîdir.",
+    "en": "Halka Park: multi-storey car parks in Konak, Bornova and Karsiyaka, Izmir; occupancy by level, hourly and monthly rates, passes. Demo site; images are representative.",
+    "ar": "هالكا بارك: مواقف سيارات متعددة الطوابق في قوناق وبورنوفا وقارشي ياقا بإزمير؛ الإشغال لكل طابق والأسعار بالساعة والشهر والاشتراكات. موقع تجريبي؛ الصور تمثيلية."
+  },
+  "keyword": {
+    "tr": "katlı otopark, otopark İzmir, aylık abonelik, saatlik park, şube",
+    "en": "multi-storey car park, parking Izmir, monthly pass, hourly parking, branch",
+    "ar": "موقف متعدد الطوابق، موقف سيارات إزمير، اشتراك شهري، وقوف بالساعة، فرع"
+  },
+  "category": "Kurumsal",
+  "name": "Halka Park",
+  "domain": "otopark-2.webyapar.com",
+  "langs": {
+    "tr": true,
+    "en": true,
+    "ar": true,
+    "de": false,
+    "ru": false,
+    "es": false,
+    "fr": false,
+    "it": false,
+    "ja": false,
+    "zh": false,
+    "ko": false,
+    "pt": false
+  },
+  "logo": "logo.png",
+  "multi": false,
+  "publishMode": "static",
+  "font": {
+    "body": "open-sans",
+    "heading": "barlow-condensed",
+    "ar": {
+      "body": "ibm-plex-sans-arabic",
+      "heading": "noto-kufi-arabic"
+    }
+  },
+  "colorScheme": "auto",
+  "theme_color": "#E3A008",
+  "seo": {
+    "noindex": true
+  },
+  "cssTokens": {
+    "--mx-radius-sm": "4px",
+    "--mx-radius-md": "6px",
+    "--mx-radius-lg": "8px",
+    "--mx-radius-xl": "11px"
+  },
+  "icon": "icon.png"
+}

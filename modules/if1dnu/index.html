@@ -1,0 +1,133 @@
+<section class="modulex-sayac-otopark-kat{{fbsinif}}" {{fbetiket}}>
+  <div class="modulex-sayac-otopark-kat-ic">
+    {{fbbas}}
+    {{fbgovde}}
+  </div>
+</section>
+
+<style>
+  /* sayac-otopark-kat — sayac-sekmeli sekme şeridiyle tek büyük rakam, sayac-nokta-matris 10×10 nokta (waffle) gösterir; bu modül dikey asansör kat düğmeleri + kat paneli + park yeri (slot) ızgarası iskeletidir — oran «dolu yer» sayısı olarak okunur (otopark doluluk dili). */
+  .modulex-sayac-otopark-kat { box-sizing: border-box; width: 100%; padding: --bosluk-- 20px; background: --bg--; color: --text--; font-size: 1rem; line-height: 1.6; font-family: var(--mx-font-sans, inherit); overflow-wrap: break-word; }
+  .modulex-sayac-otopark-kat *, .modulex-sayac-otopark-kat *::before, .modulex-sayac-otopark-kat *::after { box-sizing: border-box; }
+  /* ham/css.css «* { font-size: 14px }» kalıtımı keser — modül içinde boyut üstten gelsin (ikon yazı tipi hariç) */
+  .modulex-sayac-otopark-kat :where(*:not(.material-symbols-outlined)) { font-size: inherit; }
+  /* aynı «*» kuralı font-weight 400 · line-height 1.2 · font-family de basar — modül içinde kalıtım */
+  .modulex-sayac-otopark-kat :where(*:not(.material-symbols-outlined)) { font-weight: inherit; line-height: inherit; font-family: inherit; }
+  .modulex-sayac-otopark-kat :where(h2, h3, h4, p, ul, ol, li, figure, blockquote, dl, dd) { margin: 0; }
+  .modulex-sayac-otopark-kat :where(ul, ol) { padding: 0; list-style: none; }
+  .modulex-sayac-otopark-kat img { display: block; max-width: 100%; }
+  /* <img width height> öznitelik yüksekliği CSS aspect-ratio'yu ezer — sıfır özgüllükle auto (modül sınıfının height'ı yine kazanır) */
+  :where(.modulex-sayac-otopark-kat) img { height: auto; }
+  .modulex-sayac-otopark-kat [hidden] { display: none !important; }
+  .modulex-sayac-otopark-kat :where(a, button, summary, [data-cevir]) { cursor: pointer; }
+  .modulex-sayac-otopark-kat :where(a, button, summary, [tabindex]):focus-visible { outline: 3px solid --accent--; outline-offset: 3px; }
+  .modulex-sayac-otopark-kat-ic { max-width: --max--; margin-inline: auto; }
+  .modulex-sayac-otopark-kat-bas { display: grid; gap: 12px; margin-block-end: clamp(32px, 4vw, 52px); }
+  .modulex-sayac-otopark-kat--bassiz .modulex-sayac-otopark-kat-bas { display: none; }
+  .modulex-sayac-otopark-kat-ust { color: --accentInk--; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+  .modulex-sayac-otopark-kat-baslik { font-family: var(--mx-font-heading, inherit); font-size: clamp(1.8rem, 3.4vw, 2.8rem); font-weight: 750; letter-spacing: -0.025em; line-height: 1.1; }
+  .modulex-sayac-otopark-kat-metin { color: --muted--; font-size: 1.05rem; line-height: 1.7; }
+  .modulex-sayac-otopark-kat-bas { max-width: 760px; }
+  .modulex-sayac-otopark-kat-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-block-start: 8px; }
+  .modulex-sayac-otopark-kat-dugme { display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 12px 22px; border: 2px solid --accent--; border-radius: 999px; background: --accent--; color: --accentText--; font-weight: 700; text-decoration: none; transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease; }
+  .modulex-sayac-otopark-kat-dugme:hover { transform: translateY(-2px); }
+  .modulex-sayac-otopark-kat-dugme--ikincil { background: transparent; color: --text--; border-color: --cizgi--; }
+  .modulex-sayac-otopark-kat-dugme--ikincil:hover { border-color: --accent--; }
+  .modulex-sayac-otopark-kat-dugme .material-symbols-outlined { font-size: 20px; }
+
+  .modulex-sayac-otopark-kat-garaj { display: grid; grid-template-columns: minmax(200px, 0.6fr) minmax(0, 2fr); gap: clamp(20px, 3vw, 40px); align-items: start; }
+  .modulex-sayac-otopark-kat:not(.modulex-sayac-otopark-kat--js) .modulex-sayac-otopark-kat-garaj { grid-template-columns: minmax(0, 1fr); }
+  .modulex-sayac-otopark-kat:not(.modulex-sayac-otopark-kat--js) .modulex-sayac-otopark-kat-asansor { display: none; }
+  .modulex-sayac-otopark-kat-asansor { display: grid; gap: 10px; padding: 14px; border-radius: 24px; background: --text--; box-shadow: inset 0 0 0 4px color-mix(in srgb, --bg-- 12%, transparent); }
+  .modulex-sayac-otopark-kat-kat { display: flex; align-items: center; gap: 12px; width: 100%; min-height: 52px; padding-block: 8px; padding-inline: 8px 16px; border: 0; border-radius: 999px; background: color-mix(in srgb, --bg-- 10%, transparent); color: --bg--; font: inherit; font-weight: 700; text-align: start; transition: background 0.25s ease, color 0.25s ease; }
+  .modulex-sayac-otopark-kat-kat:hover { background: color-mix(in srgb, --bg-- 20%, transparent); }
+  .modulex-sayac-otopark-kat-kat[aria-pressed="true"] { background: --bg--; color: --text--; }
+  .modulex-sayac-otopark-kat-kat-no { display: inline-grid; place-items: center; flex: none; width: 38px; height: 38px; border: 2px solid currentColor; border-radius: 50%; font-family: var(--mx-font-mono, ui-monospace, monospace); font-size: 0.85rem; }
+  .modulex-sayac-otopark-kat-kat[aria-pressed="true"] .modulex-sayac-otopark-kat-kat-no { border-color: --accent--; background: --accent--; color: --accentText--; }
+  .modulex-sayac-otopark-kat-kat-ad { min-width: 0; line-height: 1.25; }
+  .modulex-sayac-otopark-kat-katlar { display: grid; gap: 18px; }
+  .modulex-sayac-otopark-kat-panel { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: 6px 18px; padding: clamp(20px, 3vw, 32px); border: 1px solid --cizgi--; border-radius: --yuvarlak--; background: --kartBg--; }
+  .modulex-sayac-otopark-kat-tabela { grid-row: span 3; display: grid; place-items: center; align-self: start; width: 68px; padding-block: 8px; border-radius: 14px; background: --vurguBg--; color: --vurguText--; font-family: var(--mx-font-mono, ui-monospace, monospace); font-weight: 800; }
+  .modulex-sayac-otopark-kat-tabela .material-symbols-outlined { font-size: 34px; }
+  .modulex-sayac-otopark-kat-sayi { font-size: clamp(2.4rem, 4.6vw, 3.6rem); font-weight: 800; font-variant-numeric: tabular-nums; letter-spacing: -0.03em; line-height: 1; }
+  .modulex-sayac-otopark-kat-ek { color: --accentInk--; font-size: 0.5em; }
+  .modulex-sayac-otopark-kat-etiket { display: flex; align-items: center; gap: 8px; font-size: 1.1rem; font-weight: 700; }
+  .modulex-sayac-otopark-kat-ikon { color: --accentInk--; font-size: 20px; }
+  .modulex-sayac-otopark-kat-not { grid-column: 2; color: --muted--; font-size: 0.92rem; }
+  .modulex-sayac-otopark-kat-doluluk { grid-column: 1 / -1; display: flex; align-items: center; gap: 12px; margin-block-start: 12px; font-weight: 800; font-variant-numeric: tabular-nums; }
+  .modulex-sayac-otopark-kat-doluluk-iz { flex: 1; height: 8px; overflow: hidden; border-radius: 999px; background: --cizgi--; }
+  .modulex-sayac-otopark-kat-doluluk-iz span { display: block; width: calc(var(--o) * 100%); height: 100%; border-radius: inherit; background: --accent--; }
+  .modulex-sayac-otopark-kat-yerler { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); gap: 6px; padding: 10px; border-radius: 12px; background: color-mix(in srgb, --text-- 6%, transparent); }
+  .modulex-sayac-otopark-kat-yer { display: grid; place-items: center; aspect-ratio: 1; border: 2px dashed color-mix(in srgb, --text-- 26%, transparent); border-radius: 6px; color: --accentText--; }
+  .modulex-sayac-otopark-kat-yer--dolu { border-style: solid; border-color: --accent--; background: --accent--; animation: modulex-sayac-otopark-kat-park 0.5s cubic-bezier(0.3, 1.4, 0.6, 1) backwards; animation-delay: calc(var(--y) * 40ms); }
+  .modulex-sayac-otopark-kat-yer .material-symbols-outlined { font-size: clamp(14px, 1.8vw, 22px); }
+  @keyframes modulex-sayac-otopark-kat-park { from { transform: translateY(-14px); opacity: 0; } to { transform: none; opacity: 1; } }
+  @media (max-width: 1024px) {
+    .modulex-sayac-otopark-kat-garaj { grid-template-columns: minmax(0, 1fr); }
+    .modulex-sayac-otopark-kat-asansor { grid-template-columns: repeat(2, minmax(0, 1fr)); border-radius: 20px; }
+  }
+  @media (max-width: 768px) {
+    .modulex-sayac-otopark-kat-panel { grid-template-columns: minmax(0, 1fr); }
+    .modulex-sayac-otopark-kat-tabela { grid-row: auto; display: inline-flex; gap: 6px; width: auto; padding-inline: 12px; justify-self: start; }
+    .modulex-sayac-otopark-kat-not { grid-column: 1; }
+    .modulex-sayac-otopark-kat-yerler { gap: 4px; padding: 6px; }
+    .modulex-sayac-otopark-kat-kat { gap: 8px; padding-inline-end: 10px; font-size: 0.9rem; }
+  }
+
+  :is([lang="ar"], [lang="fa"], [lang="he"], [lang="ur"]) .modulex-sayac-otopark-kat :is(.modulex-sayac-otopark-kat-baslik, .modulex-sayac-otopark-kat-ust, h3, h4, strong) { letter-spacing: 0; }
+  :is([lang="ar"], [lang="fa"], [lang="he"], [lang="ur"]) .modulex-sayac-otopark-kat-baslik { line-height: 1.35; }
+  @media (max-width: 768px) {
+    .modulex-sayac-otopark-kat { padding-inline: 16px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .modulex-sayac-otopark-kat *, .modulex-sayac-otopark-kat *::before, .modulex-sayac-otopark-kat *::after { animation: none !important; transition: none !important; }
+  }
+</style>
+<script>
+  (() => {
+    const P = "modulex-sayac-otopark-kat";
+    const az = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+    const sayac = (s, P, az) => {
+        const el = [...s.querySelectorAll("[data-hedef]")];
+        if (!el.length || az || !("IntersectionObserver" in window)) return;
+        const dl = document.documentElement.lang || undefined;
+        const oynat = () => el.forEach((e) => {
+          const h = Number(e.dataset.hedef);
+          const od = Number(e.dataset.ondalik) || 0;
+          const son = e.textContent;
+          if (!Number.isFinite(h)) return;
+          let f;
+          try { f = new Intl.NumberFormat(dl, { minimumFractionDigits: od, maximumFractionDigits: od }); } catch (x) { return; }
+          const t0 = performance.now();
+          const adim = (t) => {
+            const p = Math.min(1, (t - t0) / 1300);
+            e.textContent = p < 1 ? f.format(h * (1 - Math.pow(1 - p, 3))) : son;
+            if (p < 1) requestAnimationFrame(adim);
+          };
+          requestAnimationFrame(adim);
+        });
+        const io = new IntersectionObserver((gs) => {
+          gs.forEach((g) => { if (g.isIntersecting) { oynat(); io.disconnect(); } });
+        }, { threshold: 0.3 });
+        io.observe(s);
+      };
+    const secim = (s, P) => {
+        const c = [...s.querySelectorAll("[data-sec]")];
+        const p = [...s.querySelectorAll("[data-secim]")];
+        if (!c.length) return;
+        s.classList.add(P + "--js");
+        const sec = (n) => {
+          c.forEach((x) => x.setAttribute("aria-pressed", String(x.dataset.sec === n)));
+          p.forEach((x) => { x.hidden = x.dataset.secim !== n; });
+        };
+        sec(c[0].dataset.sec);
+        c.forEach((x) => x.addEventListener("click", () => sec(x.dataset.sec)));
+      };
+    document.querySelectorAll("." + P).forEach((s) => {
+      if (s.dataset.fbHazir) return;
+      s.dataset.fbHazir = "1";
+      sayac(s, P, az);
+      secim(s, P, az);
+    });
+  })();
+</script>

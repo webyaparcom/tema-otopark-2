@@ -1,0 +1,53 @@
+{
+  "name": "Sayaç Otopark Kat — asansör düğmeli kat paneli + park yeri ızgarası",
+  "description": "Her rakam bir otopark katı: solda asansör panosu gibi yuvarlak kat düğmeleri (01 · etiket), sağda seçili katın tabelası, büyük rakam, doluluk çubuğu (yüzde) ve 20 park yerlik ızgara — oran kadar yer araçla dolu, dolu yerler sırayla park eder. JS yoksa düğmeler gizli, tüm katlar alt alta. sayac-sekmeli sekme şeridiyle tek büyük rakam, sayac-nokta-matris 10×10 nokta (waffle) gösterir; bu modül dikey asansör kat düğmeleri + kat paneli + park yeri (slot) ızgarası iskeletidir — oran «dolu yer» sayısı olarak okunur (otopark doluluk dili). Sayılar sayfa diliyle biçimlenir (Intl), metinler dil sözlüğü, renkler desing + var(--mx-site-*), mantıksal CSS → RTL. Veri yoksa blok basılmaz.",
+  "version": "1.0.0",
+  "icon": "local_parking",
+  "category": "stats",
+  "subCategory": "parking-floors",
+  "tags": [
+    "stats",
+    "parking",
+    "floors",
+    "select",
+    "slots",
+    "rtl",
+    "fabrika"
+  ],
+  "desing": {
+    "max": "1200px",
+    "bosluk": "clamp(56px, 8vw, 104px)",
+    "yuvarlak": "18px",
+    "ust": "",
+    "baslik": "",
+    "metin": "",
+    "bg": "var(--mx-site-surface, #f6f7f9)",
+    "text": "var(--mx-site-text, #111318)",
+    "muted": "color-mix(in srgb, var(--mx-site-text, #111318) 70%, var(--mx-site-surface, #f6f7f9))",
+    "kartBg": "var(--mx-site-bg, #ffffff)",
+    "cizgi": "color-mix(in srgb, var(--mx-site-text, #111318) 12%, transparent)",
+    "accent": "var(--mx-site-primary, #2563eb)",
+    "accentInk": "color-mix(in srgb, var(--mx-site-primary, #2563eb) 70%, var(--mx-site-text, #111318))",
+    "accentText": "var(--mx-site-primary-contrast, #ffffff)",
+    "vurguBg": "var(--mx-site-primary, #2563eb)",
+    "vurguText": "var(--mx-site-primary-contrast, #ffffff)",
+    "bgcolor": "var(--mx-site-surface, #f6f7f9)",
+    "color": "var(--mx-site-text, #111318)"
+  },
+  "data": [],
+  "veri": {
+    "statik": true,
+    "dinamik": false,
+    "kaynak": "data",
+    "alanlar": {
+      "sayi": "sayı (zorunlu; 1200 · \"4.9\")",
+      "onek": "önek (dil sözlüğü; ör. «%»)",
+      "sonek": "sonek (dil sözlüğü; ör. «+», «/5»)",
+      "etiket": "etiket (dil sözlüğü, zorunlu)",
+      "metin": "kısa not (dil sözlüğü)",
+      "ikon": "Material Symbols adı",
+      "ondalik": "ondalık basamak (yoksa sayıdan)",
+      "max": "oran tavanı (halka/çubuk/dolgu; yoksa % → 100, değilse listedeki en büyük)"
+    }
+  }
+}

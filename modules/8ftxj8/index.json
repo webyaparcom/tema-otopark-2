@@ -1,0 +1,57 @@
+{
+  "name": "Ekip Vardiya Çizelgesi — saat ekseninde mesai çubukları ve «şu an» çizgisi",
+  "description": "Üstte saat ekseni, her satırda kişi (küçük portre, ad, unvan) ve yatay bir zaman izinde vardiya çubukları (bölünmüş vardiya ve gece devri dahil). Yerel saat eksen içindeyse tüm izleri kesen «şu an» çizgisi ve saat etiketi çıkar, o an vardiyada olanın yanında nabız noktası yanar. Veri ek alanı: `vardiya` (\"08:00-16:00\" ya da dizi). Zaman ekseni (Gantt) iskeleti: ekip-calisma-gunu haftanın gününe göre çip süzgeci + 7 günlük şerit kurarken burada tek günün saatleri orantılı çubuklarla çizilir ve canlı «şu an» çizgisi kimin görevde olduğunu gösterir; kart/ızgara yok, satır + iz düzeni. Metinler dil sözlüğü, renkler desing + var(--mx-site-*), mantıksal CSS → RTL. Veri yoksa blok basılmaz.",
+  "version": "1.0.0",
+  "icon": "view_timeline",
+  "category": "team",
+  "subCategory": "shift-timeline",
+  "tags": [
+    "team",
+    "shift",
+    "timeline",
+    "now-line",
+    "schedule",
+    "interactive",
+    "rtl",
+    "fabrika"
+  ],
+  "desing": {
+    "max": "1200px",
+    "bosluk": "clamp(56px, 8vw, 104px)",
+    "yuvarlak": "18px",
+    "ust": "",
+    "baslik": "",
+    "metin": "",
+    "bg": "var(--mx-site-bg, #ffffff)",
+    "text": "var(--mx-site-text, #111318)",
+    "muted": "color-mix(in srgb, var(--mx-site-text, #111318) 68%, var(--mx-site-bg, #ffffff))",
+    "kartBg": "var(--mx-site-surface, #f6f7f9)",
+    "cizgi": "color-mix(in srgb, var(--mx-site-text, #111318) 12%, transparent)",
+    "accent": "var(--mx-site-primary, #2563eb)",
+    "accentInk": "color-mix(in srgb, var(--mx-site-primary, #2563eb) 70%, var(--mx-site-text, #111318))",
+    "accentText": "var(--mx-site-primary-contrast, #ffffff)",
+    "vurguBg": "var(--mx-site-primary, #2563eb)",
+    "vurguText": "var(--mx-site-primary-contrast, #ffffff)",
+    "simdiEtiket": "",
+    "mesaideEtiket": "",
+    "bgcolor": "var(--mx-site-bg, #ffffff)",
+    "color": "var(--mx-site-text, #111318)"
+  },
+  "data": [],
+  "veri": {
+    "statik": true,
+    "dinamik": false,
+    "kaynak": "data",
+    "alanlar": {
+      "ad": "ad soyad (zorunlu; düz metin ya da dil sözlüğü)",
+      "unvan": "görev / unvan (dil sözlüğü)",
+      "metin": "kısa tanıtım (dil sözlüğü)",
+      "img": "portre görseli (yoksa baş harfler)",
+      "bolum": "bölüm (dil sözlüğü ya da desing.departments id'si)",
+      "eposta": "e-posta (mailto)",
+      "telefon": "telefon (tel:)",
+      "url": "profil sayfası bağlantısı",
+      "social": "[{ ad, url (http(s)/mailto/tel), ikon (Material Symbols) }]"
+    }
+  }
+}

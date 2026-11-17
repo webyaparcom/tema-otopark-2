@@ -1,0 +1,133 @@
+<footer class="modulex-alt-kopyala{{fbsinif}}" {{fbetiket}}>
+  <div class="modulex-alt-kopyala-ic">
+    {{fbbas}}
+    {{fbgovde}}
+  </div>
+</footer>
+
+<style>
+  /* alt-kopyala — İletişim bilgisi yalnız bağlantı değil, kopyalanabilir veri: düğme değeri panoya yazar ve aria-live ile «Kopyalandı» der — masaüstünde telefonu elle yazma derdi biter. */
+  .modulex-alt-kopyala { box-sizing: border-box; width: 100%; padding: --bosluk-- 20px; background: --bg--; color: --text--; font-size: 1rem; line-height: 1.6; font-family: var(--mx-font-sans, inherit); overflow-wrap: break-word; }
+  .modulex-alt-kopyala *, .modulex-alt-kopyala *::before, .modulex-alt-kopyala *::after { box-sizing: border-box; }
+  /* ham/css.css «* { font-size: 14px }» kalıtımı keser — modül içinde boyut üstten gelsin (ikon yazı tipi hariç) */
+  .modulex-alt-kopyala :where(*:not(.material-symbols-outlined)) { font-size: inherit; }
+  /* aynı «*» kuralı font-weight 400 · line-height 1.2 · font-family de basar — modül içinde kalıtım */
+  .modulex-alt-kopyala :where(*:not(.material-symbols-outlined)) { font-weight: inherit; line-height: inherit; font-family: inherit; }
+  .modulex-alt-kopyala :where(h2, h3, h4, p, ul, ol, li, figure, blockquote, dl, dd) { margin: 0; }
+  .modulex-alt-kopyala :where(ul, ol) { padding: 0; list-style: none; }
+  .modulex-alt-kopyala img { display: block; max-width: 100%; }
+  /* <img width height> öznitelik yüksekliği CSS aspect-ratio'yu ezer — sıfır özgüllükle auto (modül sınıfının height'ı yine kazanır) */
+  :where(.modulex-alt-kopyala) img { height: auto; }
+  .modulex-alt-kopyala [hidden] { display: none !important; }
+  .modulex-alt-kopyala :where(a, button, summary, [data-cevir]) { cursor: pointer; }
+  .modulex-alt-kopyala :where(a, button, summary, [tabindex]):focus-visible { outline: 3px solid --accent--; outline-offset: 3px; }
+  .modulex-alt-kopyala-ic { max-width: --max--; margin-inline: auto; }
+  .modulex-alt-kopyala-bas { display: grid; gap: 12px; margin-block-end: clamp(32px, 4vw, 52px); }
+  .modulex-alt-kopyala--bassiz .modulex-alt-kopyala-bas { display: none; }
+  .modulex-alt-kopyala-ust { color: --accentInk--; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+  .modulex-alt-kopyala-baslik { font-family: var(--mx-font-heading, inherit); font-size: clamp(1.8rem, 3.4vw, 2.8rem); font-weight: 750; letter-spacing: -0.025em; line-height: 1.1; }
+  .modulex-alt-kopyala-metin { color: --muted--; font-size: 1.05rem; line-height: 1.7; }
+  .modulex-alt-kopyala-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-block-start: 8px; }
+  .modulex-alt-kopyala-dugme { display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 12px 22px; border: 2px solid --accent--; border-radius: 999px; background: --accent--; color: --accentText--; font-weight: 700; text-decoration: none; transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease; }
+  .modulex-alt-kopyala-dugme:hover { transform: translateY(-2px); }
+  .modulex-alt-kopyala-dugme--ikincil { background: transparent; color: --text--; border-color: --cizgi--; }
+  .modulex-alt-kopyala-dugme--ikincil:hover { border-color: --accent--; }
+  .modulex-alt-kopyala-dugme .material-symbols-outlined { font-size: 20px; }
+
+  .modulex-alt-kopyala-bag { color: inherit; text-decoration: none; transition: color 0.2s ease; }
+  .modulex-alt-kopyala-bag:hover { color: --accentInk--; text-decoration: underline; text-underline-offset: 4px; }
+  .modulex-alt-kopyala-bag[aria-current="page"] { color: --accentInk--; font-weight: 700; }
+  .modulex-alt-kopyala-logo { display: inline-flex; align-items: center; gap: 10px; color: inherit; text-decoration: none; }
+  .modulex-alt-kopyala-logo img { width: auto; max-height: --logoH--; }
+  .modulex-alt-kopyala-ad { font-family: var(--mx-font-heading, inherit); font-size: 1.4rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; }
+  .modulex-alt-kopyala-bbaslik { margin-block-end: 14px; color: --accentInk--; font-size: 0.8rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; }
+  .modulex-alt-kopyala-sayfalar, .modulex-alt-kopyala-baglantilar, .modulex-alt-kopyala-iletisim, .modulex-alt-kopyala-yasal { display: grid; gap: 9px; }
+  .modulex-alt-kopyala-il { display: flex; align-items: flex-start; gap: 10px; }
+  .modulex-alt-kopyala-il-ic { display: grid; gap: 2px; }
+  .modulex-alt-kopyala-il-etiket { color: --muted--; font-size: 0.8rem; }
+  .modulex-alt-kopyala-il-ikon { flex: none; color: --accentInk--; font-size: 20px; }
+  .modulex-alt-kopyala-saatler { display: grid; gap: 6px; }
+  .modulex-alt-kopyala-saat { display: flex; justify-content: space-between; gap: 16px; }
+  .modulex-alt-kopyala-saat dd { margin: 0; font-weight: 600; font-variant-numeric: tabular-nums; }
+  .modulex-alt-kopyala-sosyal { display: flex; flex-wrap: wrap; gap: 10px; }
+  .modulex-alt-kopyala-sosyal-a { display: inline-grid; place-items: center; width: 42px; height: 42px; border: 1px solid --cizgi--; border-radius: 50%; color: inherit; font-size: 18px; transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.25s ease; }
+  .modulex-alt-kopyala-sosyal-a:hover { border-color: --accent--; background: --accent--; color: --accentText--; transform: translateY(-2px); }
+  .modulex-alt-kopyala-hakkinda { max-width: 46ch; color: --muted--; }
+  .modulex-alt-kopyala-telif { display: flex; flex-wrap: wrap; gap: 4px 14px; color: --muted--; font-size: 0.9rem; }
+  .modulex-alt-kopyala-dil:empty { display: none; }
+  .modulex-alt-kopyala-yukari { display: inline-grid; place-items: center; flex: none; width: 46px; height: 46px; border-radius: 50%; background: --accent--; color: --accentText--; text-decoration: none; transition: transform 0.25s ease; }
+  .modulex-alt-kopyala-yukari:hover { transform: translateY(-3px); }
+  .modulex-alt-kopyala-bulten { display: grid; gap: 8px; }
+  .modulex-alt-kopyala-nl-etiket { font-size: 0.9rem; font-weight: 700; }
+  .modulex-alt-kopyala-nl-satir { display: flex; flex-wrap: wrap; gap: 8px; }
+  .modulex-alt-kopyala-nl-girdi { flex: 1 1 200px; min-width: 0; min-height: 48px; padding: 10px 18px; border: 1px solid --cizgi--; border-radius: 999px; background: --bg--; color: --text--; font: inherit; }
+  .modulex-alt-kopyala-nl-dugme { display: inline-flex; align-items: center; gap: 6px; min-height: 48px; padding: 10px 22px; border: 0; border-radius: 999px; background: --accent--; color: --accentText--; font: inherit; font-weight: 700; transition: transform 0.2s ease; }
+  .modulex-alt-kopyala-nl-dugme:hover { transform: translateY(-2px); }
+  .modulex-alt-kopyala-nl-dugme .material-symbols-outlined { font-size: 18px; }
+  .modulex-alt-kopyala-nl-durum:empty { display: none; }
+  .modulex-alt-kopyala-nl-baslik { font-family: var(--mx-font-heading, inherit); font-size: clamp(1.4rem, 2.6vw, 2rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.15; }
+  .modulex-alt-kopyala-nl-metin { color: --muted--; }
+
+  .modulex-alt-kopyala-kp-ust { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 36px; padding-block-end: 26px; margin-block-end: 30px; border-block-end: 1px dashed --cizgi--; }
+  .modulex-alt-kopyala-kp-govde { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: clamp(28px, 5vw, 64px); align-items: start; }
+  .modulex-alt-kopyala-kp-defter { display: grid; gap: 4px; }
+  .modulex-alt-kopyala-kp-liste { display: grid; gap: 12px; }
+  .modulex-alt-kopyala-kp-satir { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 16px; padding: 14px 16px; border-radius: --yuvarlak--; background: --kartBg--; transition: box-shadow 0.25s ease, transform 0.25s ease; }
+  .modulex-alt-kopyala-kp-satir:hover { transform: translateY(-2px); box-shadow: 0 14px 30px -24px color-mix(in srgb, --text-- 60%, transparent); }
+  .modulex-alt-kopyala-kp-rozet { display: grid; place-items: center; width: 46px; height: 46px; border-radius: 14px; background: color-mix(in srgb, --accent-- 14%, transparent); color: --accentInk--; font-size: 22px; }
+  .modulex-alt-kopyala-kp-ic { display: grid; gap: 2px; min-width: 0; }
+  .modulex-alt-kopyala-kp-etiket { color: --muted--; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+  .modulex-alt-kopyala-kp-deger { color: inherit; font-size: clamp(1.05rem, 2vw, 1.35rem); font-weight: 750; text-decoration: none; overflow-wrap: anywhere; transition: color 0.2s ease; }
+  a.modulex-alt-kopyala-kp-deger:hover { color: --accentInk--; }
+  .modulex-alt-kopyala-kp-dugme { display: inline-flex; align-items: center; gap: 6px; min-height: 42px; padding: 8px 14px; border: 1px solid --cizgi--; border-radius: 999px; background: transparent; color: --text--; font: inherit; font-size: 0.85rem; font-weight: 700; transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease; }
+  .modulex-alt-kopyala-kp-dugme:hover { border-color: --accent--; }
+  .modulex-alt-kopyala-kp-dugme .material-symbols-outlined { font-size: 18px; }
+  .modulex-alt-kopyala-kp-dugme.modulex-alt-kopyala--kopyalandi { border-color: --accent--; background: --accent--; color: --accentText--; }
+  .modulex-alt-kopyala:not(.modulex-alt-kopyala--kjs) .modulex-alt-kopyala-kp-dugme { display: none; }
+  .modulex-alt-kopyala-kp-yan { display: grid; gap: 26px; }
+  .modulex-alt-kopyala-kp-dip { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; margin-block-start: 36px; padding-block-start: 20px; border-block-start: 1px dashed --cizgi--; }
+  .modulex-alt-kopyala-kp-yasal { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 0.9rem; }
+  @media (max-width: 1024px) {
+    .modulex-alt-kopyala-kp-govde { grid-template-columns: minmax(0, 1fr); }
+  }
+  @media (max-width: 768px) {
+    .modulex-alt-kopyala-kp-satir { grid-template-columns: auto minmax(0, 1fr); }
+    .modulex-alt-kopyala-kp-dugme { grid-column: 1 / -1; justify-self: start; }
+  }
+
+  :is([lang="ar"], [lang="fa"], [lang="he"], [lang="ur"]) .modulex-alt-kopyala :is(.modulex-alt-kopyala-baslik, .modulex-alt-kopyala-ust, h3, h4, strong) { letter-spacing: 0; }
+  :is([lang="ar"], [lang="fa"], [lang="he"], [lang="ur"]) .modulex-alt-kopyala-baslik { line-height: 1.35; }
+  @media (max-width: 768px) {
+    .modulex-alt-kopyala { padding-inline: 16px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .modulex-alt-kopyala *, .modulex-alt-kopyala *::before, .modulex-alt-kopyala *::after { animation: none !important; transition: none !important; }
+  }
+</style>
+<script>
+  (() => {
+    const P = "modulex-alt-kopyala";
+    const az = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+    const kopyala = (s, P) => {
+        if (!navigator.clipboard || !navigator.clipboard.writeText) return;
+        s.classList.add(P + "--kjs");
+        s.querySelectorAll("[data-kopyala]").forEach((b) => {
+          const yazi = b.querySelector("." + P + "-kyazi");
+          const ilk = yazi ? yazi.textContent : "";
+          b.addEventListener("click", () => {
+            const bitti = () => {
+              b.classList.add(P + "--kopyalandi");
+              if (yazi) yazi.textContent = b.dataset.tamam || ilk;
+              setTimeout(() => { b.classList.remove(P + "--kopyalandi"); if (yazi) yazi.textContent = ilk; }, 2000);
+            };
+            if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(b.dataset.kopyala).then(bitti, () => {});
+          });
+        });
+      };
+    document.querySelectorAll("." + P).forEach((s) => {
+      if (s.dataset.fbHazir) return;
+      s.dataset.fbHazir = "1";
+      kopyala(s, P, az);
+    });
+  })();
+</script>

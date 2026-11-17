@@ -1,0 +1,47 @@
+{
+  "name": {
+    "tr": "Şubeler",
+    "en": "Branches",
+    "ar": "الفروع"
+  },
+  "status": "play",
+  "category": "",
+  "id": "iletisim",
+  "url": "",
+  "path": "iletisim",
+  "index": 2,
+  "icon": "location_on",
+  "desing": {
+    "header": [],
+    "body": [
+      "sqpno4",
+      "k8mp01"
+    ],
+    "footer": []
+  },
+  "pathnext": "",
+  "description": {
+    "tr": "Konak, Bornova ve Karşıyaka şubeleri; abonelik formu (demo).",
+    "en": "Konak, Bornova and Karsiyaka branches; pass form (demo).",
+    "ar": "فروع قوناق وبورنوفا وقارشي ياقا؛ نموذج الاشتراك (تجريبي)."
+  },
+  "spot": {
+    "tr": "",
+    "en": "",
+    "ar": ""
+  },
+  "desc": {},
+  "title": {
+    "tr": "Şubeler",
+    "en": "Branches",
+    "ar": "الفروع"
+  },
+  "keyword": {
+    "tr": "şube, adres, abonelik",
+    "en": "branch, address, pass",
+    "ar": "فرع، عنوان، اشتراك"
+  },
+  "text": {},
+  "update": "2026-11-16T22:37:50.557Z",
+  "date": "2026-10-30"
+}

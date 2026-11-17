@@ -1,0 +1,57 @@
+{
+  "name": "İletişim Bölünmüş İki Yüz — geniş ekranda bilgi ve form yan yana açılır, dar ekranda tek yüz + anahtar",
+  "description": "Geniş ekranda bir kitap gibi ortadaki menteşeden açılan iki yüz: marka renginde bilgi yüzü (başlık, metin, ikonlu kanallar, sosyal) ve açık zeminde form yüzü. Dar ekranda (≤768px) üstte iki konumlu anahtar belirir; yalnız seçilen yüz görünür (radyo + :has, JS'siz). iletisim-form-sekme her genişlikte JS'li role=tab sekmeleridir, iletisim-yan-serit / iki-ton yalnız yan yana bölünür; bu modül DUYARLI İKİ YÜZ: masaüstünde menteşeli (rotateY perspective) açılış, dar ekranda CSS-yalnız radyo anahtarı (:has(:checked)) ile yüz takası. Kanallar desing'den (adres · telefon · WhatsApp · e-posta · saat) + data satırları; etiketler dil sözlüğü, renkler desing + var(--mx-site-*), mantıksal CSS → RTL. Kanal yoksa blok basılmaz.",
+  "version": "1.0.0",
+  "icon": "splitscreen_left",
+  "category": "contact",
+  "subCategory": "two-face-split",
+  "tags": [
+    "contact",
+    "form",
+    "split",
+    "responsive-switch",
+    "has-selector",
+    "rtl",
+    "fabrika"
+  ],
+  "desing": {
+    "max": "1200px",
+    "bosluk": "clamp(56px, 8vw, 104px)",
+    "yuvarlak": "18px",
+    "ust": "",
+    "baslik": "",
+    "metin": "",
+    "adres": "",
+    "telefon": "",
+    "eposta": "",
+    "whatsapp": "",
+    "saat": "",
+    "haritaUrl": "",
+    "haritaGomme": "",
+    "waMesaj": "",
+    "bg": "var(--mx-site-bg, #ffffff)",
+    "text": "var(--mx-site-text, #111318)",
+    "muted": "color-mix(in srgb, var(--mx-site-text, #111318) 68%, var(--mx-site-bg, #ffffff))",
+    "kartBg": "var(--mx-site-surface, #f6f7f9)",
+    "cizgi": "color-mix(in srgb, var(--mx-site-text, #111318) 12%, transparent)",
+    "accent": "var(--mx-site-primary, #2563eb)",
+    "accentInk": "color-mix(in srgb, var(--mx-site-primary, #2563eb) 70%, var(--mx-site-text, #111318))",
+    "accentText": "var(--mx-site-primary-contrast, #ffffff)",
+    "vurguBg": "var(--mx-site-primary, #2563eb)",
+    "vurguText": "var(--mx-site-primary-contrast, #ffffff)",
+    "bgcolor": "var(--mx-site-bg, #ffffff)",
+    "color": "var(--mx-site-text, #111318)"
+  },
+  "data": [],
+  "veri": {
+    "statik": true,
+    "dinamik": false,
+    "kaynak": "desing",
+    "alanlar": {
+      "ikon": "Material Symbols adı (kanal türü ikondan da anlaşılır: mail · call · location_on · schedule)",
+      "deger": "dil sözlüğü (görünen değer, zorunlu; eski `text`)",
+      "url": "bağlantı (boşsa e-posta/telefon/haritadan türetilir)",
+      "baslik": "dil sözlüğü (kanal etiketi)"
+    }
+  }
+}
