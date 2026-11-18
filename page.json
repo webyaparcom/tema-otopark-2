@@ -4,7 +4,9 @@
       "name": {
         "tr": "Vardiya",
         "en": "Shifts",
-        "ar": "الورديات"
+        "ar": "الورديات",
+        "de": "Schichten",
+        "ru": "Смены"
       },
       "status": "play",
       "id": "hakkimizda",
@@ -25,7 +27,9 @@
       "description": {
         "tr": "Görevli vardiya çizelgesi ve kat doluluğu (kurgusal).",
         "en": "Staff shift rota and level occupancy (fictional).",
-        "ar": "جدول ورديات الموظفين وإشغال الطوابق (افتراضي)."
+        "ar": "جدول ورديات الموظفين وإشغال الطوابق (افتراضي).",
+        "de": "Schichtplan des Personals und Stockwerksbelegung (fiktiv).",
+        "ru": "График смен персонала и заполненность этажей (вымышленные)."
       }
     },
     {
@@ -33,12 +37,16 @@
       "name": {
         "tr": "Tarife",
         "en": "Rates",
-        "ar": "الأسعار"
+        "ar": "الأسعار",
+        "de": "Tarife",
+        "ru": "Тарифы"
       },
       "description": {
         "tr": "Tarife, abonelik ve güvenlik soruları; ücretler KDV dahil ve kurgusal.",
         "en": "Rate, pass and safety questions; prices incl. VAT and fictional.",
-        "ar": "أسئلة الأسعار والاشتراكات والسلامة؛ الأسعار شاملة الضريبة وافتراضية."
+        "ar": "أسئلة الأسعار والاشتراكات والسلامة؛ الأسعار شاملة الضريبة وافتراضية.",
+        "de": "Fragen zu Tarif, Abonnement und Sicherheit; die Preise verstehen sich inklusive MwSt. und sind fiktiv.",
+        "ru": "Вопросы о тарифах, подписке и безопасности; цены указаны с НДС и вымышленные."
       },
       "path": "sorular",
       "icon": "payments",
@@ -58,7 +66,9 @@
       "name": {
         "tr": "Şubeler",
         "en": "Branches",
-        "ar": "الفروع"
+        "ar": "الفروع",
+        "de": "Filialen",
+        "ru": "Филиалы"
       },
       "status": "play",
       "id": "iletisim",
@@ -79,7 +89,9 @@
       "description": {
         "tr": "Konak, Bornova ve Karşıyaka şubeleri; abonelik formu (demo).",
         "en": "Konak, Bornova and Karsiyaka branches; pass form (demo).",
-        "ar": "فروع قوناق وبورنوفا وقارشي ياقا؛ نموذج الاشتراك (تجريبي)."
+        "ar": "فروع قوناق وبورنوفا وقارشي ياقا؛ نموذج الاشتراك (تجريبي).",
+        "de": "Filialen in Konak, Bornova und Karşıyaka; Abonnementformular (Demo).",
+        "ru": "Филиалы в Конак, Борнова и Каршыяка; форма подписки (демо)."
       }
     }
   ],
