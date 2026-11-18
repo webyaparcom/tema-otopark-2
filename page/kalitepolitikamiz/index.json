@@ -3,17 +3,23 @@
   "name": {
     "tr": "Kalite Politikamız",
     "en": "Quality Policy",
-    "ar": "سياسة الجودة"
+    "ar": "سياسة الجودة",
+    "de": "Qualitätspolitik",
+    "ru": "Политика качества"
   },
   "description": {
     "tr": "Kalite politikamız",
     "en": "Our quality policy",
-    "ar": "سياسة الجودة لدينا"
+    "ar": "سياسة الجودة لدينا",
+    "de": "Unsere Qualitätspolitik",
+    "ru": "Наша политика качества"
   },
   "keyword": {
     "tr": "Kalite Politikamız",
     "en": "quality policy, quality, continuous improvement",
-    "ar": "سياسة الجودة, الجودة, التحسين المستمر"
+    "ar": "سياسة الجودة, الجودة, التحسين المستمر",
+    "de": "Qualitätspolitik",
+    "ru": "Политика качества"
   },
   "path": "kalitepolitikamiz",
   "icon": "verified",
@@ -29,12 +35,16 @@
   "text": {
     "tr": "<h2>Kalite Politikamız</h2>\n<p>Her katta kamera kaydı, vardiyalı görevli, yazılı tarife panosu ve plaka tanımalı giriş-çıkış.</p>",
     "en": "<h2>Our quality policy</h2>\n<p>Camera recording on every level, staff on shifts, a written rate board and plate-recognition entry and exit.</p>",
-    "ar": "<h2>سياسة الجودة لدينا</h2>\n<p>تسجيل بالكاميرات في كل طابق وموظفون بنظام الورديات ولوحة أسعار مكتوبة ودخول وخروج بالتعرف على اللوحات.</p>"
+    "ar": "<h2>سياسة الجودة لدينا</h2>\n<p>تسجيل بالكاميرات في كل طابق وموظفون بنظام الورديات ولوحة أسعار مكتوبة ودخول وخروج بالتعرف على اللوحات.</p>",
+    "de": "<h2>Unsere Qualitätsrichtlinie</h2>\n<p>Kameraaufzeichnung auf jeder Ebene, Schichtdienst, schriftliches Tarifboard und Ein-/Ausfahrtserkennung per Kennzeichen.</p>",
+    "ru": "<h2>Наша политика качества</h2>\n<p>Видеонаблюдение на каждом этаже, работа посменно, письменный прейскурант и распознавание номеров при въезде и выезде.</p>"
   },
   "title": {
     "tr": "Kalite Politikamız",
     "en": "Quality Policy",
-    "ar": "سياسة الجودة"
+    "ar": "سياسة الجودة",
+    "de": "Qualitätspolitik",
+    "ru": "Политика качества"
   },
   "date": "2026-11-16T22:34:58.177Z",
   "update": "2026-11-16T22:37:50.590Z",

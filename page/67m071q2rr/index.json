@@ -3,17 +3,23 @@
   "name": {
     "tr": "Tarife",
     "en": "Rates",
-    "ar": "الأسعار"
+    "ar": "الأسعار",
+    "de": "Tarife",
+    "ru": "Тарифы"
   },
   "description": {
     "tr": "Tarife, abonelik ve güvenlik soruları; ücretler KDV dahil ve kurgusal.",
     "en": "Rate, pass and safety questions; prices incl. VAT and fictional.",
-    "ar": "أسئلة الأسعار والاشتراكات والسلامة؛ الأسعار شاملة الضريبة وافتراضية."
+    "ar": "أسئلة الأسعار والاشتراكات والسلامة؛ الأسعار شاملة الضريبة وافتراضية.",
+    "de": "Fragen zu Tarif, Abonnement und Sicherheit; die Preise verstehen sich inklusive MwSt. und sind fiktiv.",
+    "ru": "Вопросы о тарифах, подписке и безопасности; цены указаны с НДС и вымышленные."
   },
   "keyword": {
     "tr": "tarife, otopark ücreti",
     "en": "rates, parking fee",
-    "ar": "الأسعار، رسوم الوقوف"
+    "ar": "الأسعار، رسوم الوقوف",
+    "de": "Tarife, Parkgebühren",
+    "ru": "Тарифы, стоимость парковки"
   },
   "path": "sorular",
   "icon": "payments",
@@ -33,7 +39,9 @@
   "title": {
     "tr": "Tarife",
     "en": "Rates",
-    "ar": "الأسعار"
+    "ar": "الأسعار",
+    "de": "Tarife",
+    "ru": "Тарифы"
   },
   "date": "2026-11-16T22:34:58.455Z",
   "update": "2026-11-16T22:37:50.539Z"

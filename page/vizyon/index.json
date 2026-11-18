@@ -3,17 +3,23 @@
   "name": {
     "tr": "Vizyon",
     "en": "Vision",
-    "ar": "الرؤية"
+    "ar": "الرؤية",
+    "de": "Vision",
+    "ru": "Видение"
   },
   "description": {
     "tr": "Vizyonumuz",
     "en": "Our vision",
-    "ar": "رؤيتنا"
+    "ar": "رؤيتنا",
+    "de": "Unsere Vision",
+    "ru": "Наше видение"
   },
   "keyword": {
     "tr": "Vizyon",
     "en": "vision, our vision, goals",
-    "ar": "الرؤية, رؤيتنا, الأهداف"
+    "ar": "الرؤية, رؤيتنا, الأهداف",
+    "de": "Vision",
+    "ru": "Видение"
   },
   "path": "vizyon",
   "icon": "visibility",
@@ -29,12 +35,16 @@
   "text": {
     "tr": "<h2>Vizyonumuz</h2>\n<p>İzmir’de tarifesini ve doluluğunu en açık paylaşan otopark işletmelerinden biri olmak.</p>",
     "en": "<h2>Our vision</h2>\n<p>To be one of the car park operators in Izmir that share their rates and occupancy most openly.</p>",
-    "ar": "<h2>رؤيتنا</h2>\n<p>أن نكون من مشغّلي المواقف في إزمير الأكثر شفافية في مشاركة الأسعار والإشغال.</p>"
+    "ar": "<h2>رؤيتنا</h2>\n<p>أن نكون من مشغّلي المواقف في إزمير الأكثر شفافية في مشاركة الأسعار والإشغال.</p>",
+    "de": "<h2>Unsere Vision</h2>\n<p>Zu den Parkbetreibern in Izmir zu gehören, die ihre Tarife und Auslastung am transparentesten kommunizieren.</p>",
+    "ru": "<h2>Наше видение</h2>\n<p>Стать одним из операторов парковок в Измире, которые наиболее открыто публикуют тарифы и загрузку.</p>"
   },
   "title": {
     "tr": "Vizyon",
     "en": "Vision",
-    "ar": "الرؤية"
+    "ar": "الرؤية",
+    "de": "Vision",
+    "ru": "Видение"
   },
   "date": "2026-11-16T22:34:58.177Z",
   "update": "2026-11-16T22:37:50.586Z",

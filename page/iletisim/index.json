@@ -2,7 +2,9 @@
   "name": {
     "tr": "Şubeler",
     "en": "Branches",
-    "ar": "الفروع"
+    "ar": "الفروع",
+    "de": "Filialen",
+    "ru": "Филиалы"
   },
   "status": "play",
   "category": "",
@@ -23,7 +25,9 @@
   "description": {
     "tr": "Konak, Bornova ve Karşıyaka şubeleri; abonelik formu (demo).",
     "en": "Konak, Bornova and Karsiyaka branches; pass form (demo).",
-    "ar": "فروع قوناق وبورنوفا وقارشي ياقا؛ نموذج الاشتراك (تجريبي)."
+    "ar": "فروع قوناق وبورنوفا وقارشي ياقا؛ نموذج الاشتراك (تجريبي).",
+    "de": "Filialen in Konak, Bornova und Karşıyaka; Abonnementformular (Demo).",
+    "ru": "Филиалы в Конак, Борнова и Каршыяка; форма подписки (демо)."
   },
   "spot": {
     "tr": "",
@@ -34,12 +38,16 @@
   "title": {
     "tr": "Şubeler",
     "en": "Branches",
-    "ar": "الفروع"
+    "ar": "الفروع",
+    "de": "Filialen",
+    "ru": "Филиалы"
   },
   "keyword": {
     "tr": "şube, adres, abonelik",
     "en": "branch, address, pass",
-    "ar": "فرع، عنوان، اشتراك"
+    "ar": "فرع، عنوان، اشتراك",
+    "de": "Filiale, Adresse, Abo",
+    "ru": "филиал, адрес, подписка"
   },
   "text": {},
   "update": "2026-11-16T22:37:50.557Z",

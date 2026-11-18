@@ -2,7 +2,9 @@
   "name": {
     "tr": "Vardiya",
     "en": "Shifts",
-    "ar": "الورديات"
+    "ar": "الورديات",
+    "de": "Schichten",
+    "ru": "Смены"
   },
   "status": "play",
   "category": "",
@@ -23,7 +25,9 @@
   "description": {
     "tr": "Görevli vardiya çizelgesi ve kat doluluğu (kurgusal).",
     "en": "Staff shift rota and level occupancy (fictional).",
-    "ar": "جدول ورديات الموظفين وإشغال الطوابق (افتراضي)."
+    "ar": "جدول ورديات الموظفين وإشغال الطوابق (افتراضي).",
+    "de": "Schichtplan des Personals und Stockwerksbelegung (fiktiv).",
+    "ru": "График смен персонала и заполненность этажей (вымышленные)."
   },
   "spot": {
     "tr": "",
@@ -34,12 +38,16 @@
   "title": {
     "tr": "Vardiya",
     "en": "Shifts",
-    "ar": "الورديات"
+    "ar": "الورديات",
+    "de": "Schichten",
+    "ru": "Смены"
   },
   "keyword": {
     "tr": "vardiya, görevli",
     "en": "shifts, staff",
-    "ar": "ورديات، موظفون"
+    "ar": "ورديات، موظفون",
+    "de": "Schicht, Mitarbeiter",
+    "ru": "смена, сотрудник"
   },
   "text": {},
   "update": "2026-11-16T22:37:50.528Z",
